@@ -5,7 +5,7 @@ A TikZposter theme based on the style guide of the University of Southern Denmar
 
 ## Installation
 
-Download `tikzposterSDU.sty` at place it in the same folder as your root document. The Arial font used in the example is non-free. If it was not included with your LaTeX distribution you can download it using the [getnonfreefonts](https://www.tug.org/fonts/getnonfreefonts) script.
+Download `tikzposterSDU.sty` and place it in the same folder as your root document. The Arial font used in the example is non-free. If it was not included with your LaTeX distribution you can download it using the [getnonfreefonts](https://www.tug.org/fonts/getnonfreefonts) script.
 
 ## Usage
 
