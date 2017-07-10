@@ -1,0 +1,86 @@
+\def\@conference{}
+\newcommand*{\conference}[1]{\def\@conference{#1}}
+
+\def\@logoleft{}
+\newcommand*{\logoleft}[1]{\def\@logoleft{#1}}
+
+\def\@logoright{}
+\newcommand*{\logoright}[1]{\def\@logoright{#1}}
+
+\definecolor{SDUwhite}{RGB}{255,255,255}
+\definecolor{SDUblack}{RGB}{16,15,15}
+
+\definecolorstyle{SDU}{
+}{
+	% Background Colors
+	\colorlet{backgroundcolor}{SDUwhite}
+	\colorlet{framecolor}{SDUblack}
+	% Title Colors
+	\colorlet{titlefgcolor}{SDUblack}
+	\colorlet{titlebgcolor}{SDUblack}
+	% Block Colors
+	\colorlet{blocktitlebgcolor}{SDUblack}
+	\colorlet{blocktitlefgcolor}{SDUwhite}
+	\colorlet{blockbodybgcolor}{SDUwhite}
+	\colorlet{blockbodyfgcolor}{SDUblack}
+	% Innerblock Colors
+	\colorlet{innerblocktitlebgcolor}{SDUwhite}
+	\colorlet{innerblocktitlefgcolor}{SDUblack}
+	\colorlet{innerblockbodybgcolor}{SDUwhite}
+	\colorlet{innerblockbodyfgcolor}{SDUblack}
+	% Note colors
+	\colorlet{notefgcolor}{SDUblack}
+	\colorlet{notebgcolor}{SDUwhite}
+	\colorlet{notefrcolor}{SDUwhite}
+}
+
+\definetitlestyle{SDU}{
+    width=\paperwidth, roundedcorners=0, linewidth=7pt, innersep=1.5cm,
+    titletotopverticalspace=0mm, titletoblockverticalspace=20mm,
+    titlegraphictotitledistance=10pt
+}{
+    \draw[draw=titlebgcolor, line width=\titlelinewidth]%
+    	(\titleposleft,\titleposbottom) -- (\titleposright,\titleposbottom);
+	\node[inner sep=0pt, anchor=east, text=titlefgcolor]%
+		at ($(bottomleft)+(\textwidth,1.5)-(1.5,0)$){\@date};
+	\node[inner sep=0pt, anchor=west, text=titlefgcolor]%
+		at ($(bottomleft)+(1.5,1.5)$){\@conference};
+	\draw[draw=titlebgcolor, line width=\titlelinewidth]%
+		($(bottomleft)+(0,3)$) -- ($(bottomleft)+(\textwidth,3)$);
+	\node[inner sep=0pt, anchor=west]%
+		at ($(\titleposleft,0.5\titleposbottom+0.5\titlepostop)+(1.5,0)$){\@logoleft};
+	\node[inner sep=0pt, anchor=east]%
+		at ($(\titleposright,0.5\titleposbottom+0.5\titlepostop)-(1.5,0)$){\@logoright};
+}
+
+\defineblockstyle{SDU}{
+    titlewidthscale=1, bodywidthscale=1, titleleft,
+    titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0pt, bodyoffsety=0pt,
+    bodyverticalshift=0pt, roundedcorners=0, linewidth=0pt, titleinnersep=1cm,
+    bodyinnersep=1cm
+}{
+    \ifBlockHasTitle%
+        \draw[draw=none, fill=blocktitlebgcolor]%
+           (blocktitle.south west) rectangle (blocktitle.north east);
+    \fi%
+	\draw[draw=none, fill=blockbodybgcolor,rounded corners=\blockroundedcorners]%
+        (blockbody.north west) [rounded corners=0] -- (blockbody.south west) --
+        (blockbody.south east) [rounded corners=0]-- (blockbody.north east) -- cycle;
+}
+
+\definelayouttheme{SDU}{
+    \usecolorstyle{SDU}
+    \usebackgroundstyle{Default}
+    \usetitlestyle{SDU}
+    \useblockstyle{SDU}
+    \useinnerblockstyle{Default}
+    \usenotestyle{Default}
+}
+
+\settitle{ \centering \vbox{
+	\centering
+	\color{titlefgcolor} {\bfseries \Huge \@title \par}
+	\vspace*{1em}
+	{\LARGE \scshape \@author \par} \vspace*{5mm} {\Large \@institute}
+}}
+

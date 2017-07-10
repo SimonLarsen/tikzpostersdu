@@ -1,0 +1,118 @@
+\documentclass[
+	25pt,
+	a0paper,
+	portrait,
+	margin=15mm,
+	innermargin=15mm,
+	blockverticalspace=10mm,
+	colspace=15mm,
+	subcolspace=8mm
+]{tikzposter}
+
+\usepackage{tikzposterSDU}
+\usetheme{SDU}
+
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{uarial}% use Arial font
+
+\renewcommand{\familydefault}{\sfdefault}% Use sans-serif font by default
+\tikzposterlatexaffectionproofoff% remove tikzposter logo
+
+\title{SDU Ti\emph{k}Zposter example}
+\author{Simon J. Larsen, Second Author, Third Author}
+\institute{Department of Mathematics and Computer Science, University of Southern Denmark}
+\date{\today}
+\conference{International Conference for Fake Ti\emph{k}Z Poster Examples 2017}
+
+\logoleft{}
+\logoright{\includegraphics[width=11cm]{sdulogo.pdf}}
+
+\begin{document}
+\maketitle
+
+\begin{columns}
+	\column{0.5}
+	\block{Introduction}{
+		\blindtext
+
+		\vspace{7mm}
+		\begin{tikzfigure}[This is a figure.]
+			\label{fig:ex1}
+			\includegraphics[width=0.6\linewidth]{example-image-a}
+		\end{tikzfigure}
+		\vspace{7mm}
+
+		\blindtext
+	}
+
+	\block{Methods}{
+		\blindtext
+
+		\vspace{7mm}
+		\begin{tikzfigure}[This is another figure.]
+			\label{fig:ex2}
+			\includegraphics[width=0.6\linewidth]{example-image-golden}
+		\end{tikzfigure}
+		\vspace{7mm}
+
+		Here is an equation:
+		\begin{equation}
+			x = \frac{1}{n} \sum_{i=1}^n x_i = \frac{x_1 + x_2 + \cdots + x_n}{n}.
+			\label{eq:ex1}
+		\end{equation}
+		How about another one?
+		\begin{equation}
+			\lim_{n \rightarrow  \infty  }  \frac{ \left | { p}_{n+1 } -p   \right |  }{ { \left |  { p}_{n }-p   \right |  }^{ \alpha} } =\lambda 
+			\label{eq:ex2}
+		\end{equation}
+		
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet minec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+	}
+
+	\column{0.5}
+	\block{Results}{
+		Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit amet ante lobortis sollicitudin. Praesent blandit blandit mauris. Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis
+
+		\vspace{7mm}
+		\begin{tikzfigure}[Yet another figure]
+			\label{fig:ex3}
+			\includegraphics[width=0.6\linewidth]{example-image-b}
+		\end{tikzfigure}
+		\vspace{7mm}
+
+		\blindtext
+
+		\vspace{7mm}
+		\begin{tikzfigure}[And yet another one]
+			\label{fig:ex4}
+			\includegraphics[width=0.6\linewidth]{example-image-c}
+		\end{tikzfigure}
+		\vspace{-7mm}
+	}
+
+	\block{Conclusions}{
+		\blindtext
+	}
+
+	\block{References}{
+		\renewcommand{\section}[2]{}% remove references heading
+		\begin{thebibliography}{3}
+			\bibitem{milner}
+			R. Milner, Y. Kobayashi, and O. Smith.
+			\textit{Decoupling multi-processors from wide-area networks in DHCP},
+			in Proceedings of SOSP, May 2005.
+
+    		\bibitem{Needham}
+			R. Needham, "Developing red-black trees and IPv6.
+			\textit{Journal of Interposable},
+			Psychoacoustic Information, vol. 26, pp. 40-55, May 2003.
+
+		\bibitem{kaashoek}
+			M. F. Kaashoek, K. Nygaard, and C. Papadimitriou.
+			\textit{Model checking considered harmful},
+			in Proceedings of FPCA, Sept. 1999. 
+		\end{thebibliography}
+	}
+\end{columns}
+\end{document}
